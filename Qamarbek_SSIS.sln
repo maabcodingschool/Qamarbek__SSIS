@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Qamarbek_SSIS", "Qamarbek_SSIS.dtproj", "{92BC9CF5-AF10-40E2-A3DF-26D02C96DB6A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92BC9CF5-AF10-40E2-A3DF-26D02C96DB6A}.Development|Default.ActiveCfg = Development
+		{92BC9CF5-AF10-40E2-A3DF-26D02C96DB6A}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3E87279-9C67-41DA-834B-DE421B136F40}
+	EndGlobalSection
+EndGlobal
