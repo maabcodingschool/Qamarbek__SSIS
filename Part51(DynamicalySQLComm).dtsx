@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LAPTOP-OSQ8FADN"
   DTS:CreatorName="LAPTOP-OSQ8FADN\Qamarbek"
-  DTS:DTSID="{F986FACD-5035-46EB-B7D8-EE91920D5E71}"
+  DTS:DTSID="{8E39E99C-1DDC-4676-92CD-A696BB823448}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.152"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="Part51 DynamicalySQLComm"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{64C47221-2E44-4BED-AB4A-0A8749750209}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{737CCC9C-7196-41AA-8E11-5D87863CF3A6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
