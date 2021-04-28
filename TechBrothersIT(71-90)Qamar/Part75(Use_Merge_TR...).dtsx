@@ -1,0 +1,1493 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/25/2021 10:24:03 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-OSQ8FADN"
+  DTS:CreatorName="LAPTOP-OSQ8FADN\Qamarbek"
+  DTS:DTSID="{1F5071F9-F79A-431F-B28E-FB2DFCAA5074}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.152"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Part75 Use_Merge_TR"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{0E1C1F71-C953-4F5D-8B25-110C6CCAF1E6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-OSQ8FADN.All_Classes]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0EC1BB65-3C8B-4D5B-870D-1B8F6217C752}"
+      DTS:ObjectName="LAPTOP-OSQ8FADN.All_Classes">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-OSQ8FADN;Initial Catalog=All_Classes;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0712A7B0-BD88-44D6-87C3-D44B9EF04F73}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Merge"
+              componentClassID="Microsoft.Merge"
+              contactInfo="Merge;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple sorted data flows into one sorted data flow. Unlike the Merge Join, all rows flow to the output. For example, combine two sorted lists of customers into a single sorted list. If sorting is not important, use the Union All transformation. "
+              name="Merge"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Merge.Inputs[Merge Input 1]"
+                  name="Merge Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge.Inputs[Merge Input 1].Columns[CustID]"
+                      cachedDataType="i4"
+                      cachedName="CustID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CustID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[CustID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge.Inputs[Merge Input 1].Columns[CustName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CustName"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CustName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[CustName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge.Inputs[Merge Input 1].Columns[StreetAddress]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StreetAddress"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[StreetAddress]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[StreetAddress]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge.Inputs[Merge Input 1].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="City"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[City]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[City]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge.Inputs[Merge Input 1].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[State]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[State]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge.Inputs[Merge Input 1].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Region"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Region]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[Region]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\Merge.Inputs[Merge Input 2]"
+                  name="Merge Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge.Inputs[Merge Input 2].Columns[CustID]"
+                      cachedDataType="i4"
+                      cachedName="CustID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[CustID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[CustID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge.Inputs[Merge Input 2].Columns[CustName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CustName"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[CustName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[CustName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge.Inputs[Merge Input 2].Columns[StreetAddress]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StreetAddress"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[StreetAddress]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[StreetAddress]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge.Inputs[Merge Input 2].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="City"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[City]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[City]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge.Inputs[Merge Input 2].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[State]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[State]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge.Inputs[Merge Input 2].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Region"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[Region]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[Region]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Merge.Outputs[Merge Output 1]"
+                  isSorted="true"
+                  name="Merge Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[CustID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[CustID]"
+                      name="CustID"
+                      sortKeyPosition="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[CustName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[CustName]"
+                      name="CustName"
+                      sortKeyPosition="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[StreetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[StreetAddress]"
+                      name="StreetAddress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Merge.Outputs[Merge Output 1].Columns[Region]"
+                      name="Region" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-OSQ8FADN.All_Classes]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-OSQ8FADN.All_Classes]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustID]"
+                      name="CustID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustName]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustName]"
+                      name="CustName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[StreetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StreetAddress]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[StreetAddress]"
+                      name="StreetAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustID]"
+                      dataType="i4"
+                      name="CustID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CustName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StreetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="StreetAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Region" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustID]"
+                      name="CustID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustName]"
+                      name="CustName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StreetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StreetAddress]"
+                      name="StreetAddress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source 1"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source 1"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CustomerId] CustID
+      ,[CustomerName] CustName
+      ,[StreetAddress]
+      ,[City]
+      ,[State]
+      ,[Region]
+  FROM [Customer_AS]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Source 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-OSQ8FADN.All_Classes]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-OSQ8FADN.All_Classes]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CustID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[CustID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CustID]"
+                      name="CustID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CustName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[CustName]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CustName]"
+                      name="CustName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[StreetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[StreetAddress]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[StreetAddress]"
+                      name="StreetAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[CustID]"
+                      dataType="i4"
+                      name="CustID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[CustName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CustName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[StreetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="StreetAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Region" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[CustID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[CustID]"
+                      name="CustID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[CustName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[CustName]"
+                      name="CustName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[StreetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[StreetAddress]"
+                      name="StreetAddress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[CustID]"
+                      cachedDataType="i4"
+                      cachedName="CustID"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[CustName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CustName"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[StreetAddress]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StreetAddress"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[StreetAddress]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="City"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Region"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CustID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CustID]"
+                      name="CustID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CustName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CustName]"
+                      name="CustName"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[StreetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[StreetAddress]"
+                      name="StreetAddress">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[StreetAddress]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[City]"
+                      name="City">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[State]"
+                      name="State">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Region]"
+                      name="Region">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[CustID]"
+                      cachedDataType="i4"
+                      cachedName="CustID"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CustID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[CustName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CustName"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CustName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[StreetAddress]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="StreetAddress"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[StreetAddress]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[City]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="City"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[City]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="State"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[State]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Region"
+                      lineageId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[CustID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[CustID]"
+                      name="CustID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CustID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[CustName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[CustName]"
+                      name="CustName"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[CustName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[StreetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[StreetAddress]"
+                      name="StreetAddress">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[StreetAddress]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[City]"
+                      name="City">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[City]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[State]"
+                      name="State">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[State]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[Region]"
+                      name="Region">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output].Columns[Region]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Merge Output 1]"
+              endId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+              name="Merge Output 1"
+              startId="Package\Data Flow Task\Merge.Outputs[Merge Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB Source 1.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output]"
+              endId="Package\Data Flow Task\Merge.Inputs[Merge Input 1]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output1]"
+              endId="Package\Data Flow Task\Merge.Inputs[Merge Input 2]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="284.166655374898,87.5333340289858" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="83.3333300219644,54.6000004339218" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\Data Flow Task\Sort"
+          TopLeft="112.499995529652,143.866667810016" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="160.316662775808,96.2000004339218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.6666673760945"
+              Start="0,0"
+              End="0,40.1666673760945">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.1666673760945" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Data Flow Task\OLE DB Source 1"
+          TopLeft="304.99998788039,54.6000004339218" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\Data Flow Task\Sort 1"
+          TopLeft="329.166653586759,141.266667789353" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="383.883320733574,96.2000004339218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.0666673554314"
+              Start="0,0"
+              End="0,37.5666673554314">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5666673554314" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="108,41.6"
+          Id="Package\Data Flow Task\Merge"
+          TopLeft="205.833325154252,246.133335289425" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="161.299995529652,185.466667810016">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="81.8666629579334,60.6666674794091"
+              Start="0,0"
+              End="81.8666629579334,53.1666674794091">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8686136192127" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.8686136192127"
+                    Point2="0,35.8686136192127"
+                    Point3="4,35.8686136192127" />
+                  <mssgle:LineSegment
+                    End="77.8666629579334,35.8686136192127" />
+                  <mssgle:CubicBezierSegment
+                    Point1="77.8666629579334,35.8686136192127"
+                    Point2="81.8666629579334,35.8686136192127"
+                    Point3="81.8666629579334,39.8686136192127" />
+                  <mssgle:LineSegment
+                    End="81.8666629579334,53.1666674794091" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output1]"
+          TopLeft="382.366653586759,182.866667789353">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-105.866661765841,63.2666675000721"
+              Start="0,0"
+              End="-105.866661765841,55.7666675000721">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.4058399088017" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.4058399088017"
+                    Point2="0,37.4058399088017"
+                    Point3="-4,37.4058399088017" />
+                  <mssgle:LineSegment
+                    End="-101.866661765841,37.4058399088017" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-101.866661765841,37.4058399088017"
+                    Point2="-105.866661765841,37.4058399088017"
+                    Point3="-105.866661765841,41.4058399088017" />
+                  <mssgle:LineSegment
+                    End="-105.866661765841,55.7666675000721" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="119.2,41.6"
+          Id="Package\Data Flow Task\Multicast"
+          TopLeft="199.166658752495,361.400002872149" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Output 1]"
+          TopLeft="259.299991953373,287.733335289425">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.6666675827238"
+              Start="0,0"
+              End="0,66.1666675827238">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.1666675827238" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,25.0833337913619,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

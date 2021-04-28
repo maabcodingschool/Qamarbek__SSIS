@@ -1,0 +1,111 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/28/2021 2:28:12 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-OSQ8FADN"
+  DTS:CreatorName="LAPTOP-OSQ8FADN\Qamarbek"
+  DTS:DTSID="{53227B79-4DC0-4CB1-9C6C-46D445BAC399}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.152"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Part90 UploadSingleFileTo_FTP_Server"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{66EB0AB2-5008-4D58-B5D6-633FF09E36EC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Customer.txt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{B6DF4918-CDC4-41A7-BA1A-E02A6BFB144D}"
+      DTS:ObjectName="Customer.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="D:\SSIS Tasks\AllOutput\Video90\Customer.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FTP Connection Manager]"
+      DTS:CreationName="FTP"
+      DTS:DTSID="{3A74CB81-3AFF-48EC-A718-095D43F707E3}"
+      DTS:ObjectName="FTP Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="QamarFTP:21">
+          <DTS:FtpConnection
+            DTS:ServerName="QamarFTP"
+            DTS:ServerUserName="anonymous">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAPeYmYPFWvEmn/qhW37I21wAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACZLgLTj72crjZHsyDXRSJ2hS/FHo5iX23JA1dQznts9QAAAAAOgAAAAAIAACAAAACFsCqVXtviemDhnzfOekZw2p1a2Cb6AObUKvneKPfPLSAAAADVMxsE7P0vHWdFzBaS4fw/IwPL6TglHpfJyVturR5ZbEAAAACpROzrWxcT23igeadca0km6clg46guT8Jit1a92Hiqc2Lho+K/ORvlqAn+QZDflZL19rtgYYQGa4Bht3flhj3D</DTS:Property>
+          </DTS:FtpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ADBD5820-3D5A-41B6-A041-8249B3D3005B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="localfolder">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\SSIS Tasks\AllOutput\Video90\Customer.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B197BB3E-30C8-4EBB-A97D-10255587581C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="remodfolder">
+      <DTS:VariableValue
+        DTS:DataType="8">/testdb</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FTP Task"
+      DTS:CreationName="Microsoft.FtpTask"
+      DTS:Description="FTP Task"
+      DTS:DTSID="{A53ED4E5-EF81-4E15-99EE-0948EB0200CD}"
+      DTS:ExecutableType="Microsoft.FtpTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FTP Task"
+      DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2019; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FtpData
+          ConnectionName="{3A74CB81-3AFF-48EC-A718-095D43F707E3}"
+          TaskIsLocalPathVar="True"
+          TaskLocalPath="User::localfolder"
+          TaskIsRemotePathVar="True"
+          TaskRemotePath="User::remodfolder" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="123.2,41.6"
+          Id="Package\FTP Task"
+          TopLeft="478.57049380383,116.653334260411" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

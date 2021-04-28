@@ -1,0 +1,790 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/25/2021 8:50:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-OSQ8FADN"
+  DTS:CreatorName="LAPTOP-OSQ8FADN\Qamarbek"
+  DTS:DTSID="{8D68AE81-831C-4486-906E-F4326BAA1969}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.152"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Part81 Create_Load_Summary_Email_TR"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{1CF12A87-8F5E-497B-88D9-3BA86FCD7DE5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-OSQ8FADN.All_Classes]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8313A36A-4B55-4ED8-818B-96A4466F66B9}"
+      DTS:ObjectName="LAPTOP-OSQ8FADN.All_Classes">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=LAPTOP-OSQ8FADN;Initial Catalog=All_Classes;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7CFE958F-8CF6-459D-B59F-39E2DBA2B53E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Var_ExtractedCnt">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{40EC5354-FAC7-4FC0-AC7C-BB74F69410C9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Var_LoadedCnt">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0EF8C085-A394-48E1-BEE7-B2F3C879493F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Var_UpdateCnt">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{32F03849-D923-44B5-8A65-D2ED954F9099}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Loading"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Loading">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Loading.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Loading.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Data Flow Task\Loading.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 3]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-OSQ8FADN.All_Classes]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-OSQ8FADN.All_Classes]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustID]"
+                      name="CustID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustName]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustName]"
+                      name="CustName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[StreetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StreetAddress]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[StreetAddress]"
+                      name="StreetAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="2"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustID]"
+                      dataType="i4"
+                      name="CustID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CustName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StreetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="StreetAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Region" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustID]"
+                      name="CustID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustName]"
+                      name="CustName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StreetAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StreetAddress]"
+                      name="StreetAddress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::Var_ExtractedCnt</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Data Flow Task\Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Row Count 1"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count 1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::Var_LoadedCnt</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Row Count 1.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Row Count 1.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Data Flow Task\Row Count 1.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Row Count 2"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Row Count 2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::Var_UpdateCnt</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Row Count 2.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Row Count 2.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\Data Flow Task\Row Count 2.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Updating"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Updating">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Updating.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Updating.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Data Flow Task\Updating.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Multicast Output 1]"
+              endId="Package\Data Flow Task\Row Count 2.Inputs[Row Count Input 1]"
+              name="Multicast Output 1"
+              startId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Multicast Output 3]"
+              endId="Package\Data Flow Task\Row Count 1.Inputs[Row Count Input 1]"
+              name="Multicast Output 3"
+              startId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 3]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Row Count.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Row Count Output 1]"
+              endId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+              name="Row Count Output 1"
+              startId="Package\Data Flow Task\Row Count.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Row Count Output 11]"
+              endId="Package\Data Flow Task\Loading.Inputs[Multicast Input 1]"
+              name="Row Count Output 1"
+              startId="Package\Data Flow Task\Row Count 1.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Row Count Output 12]"
+              endId="Package\Data Flow Task\Updating.Inputs[Multicast Input 1]"
+              name="Row Count Output 1"
+              startId="Package\Data Flow Task\Row Count 2.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Send Mail Task"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{CAAD684B-C185-4D3E-A636-2A762828CC11}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Send Mail Task"
+      DTS:TaskContact="Send Mail Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="MessageSource">"Salom Hammaga.\n"
++ @[System::PackageName]+" \nloyihasi muvoffaqiyatli yakunlandi.\nBu yerda barcha qatorlar soni: "+(DT_STR,10,1252) @[User::Var_ExtractedCnt]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:MessageSource="Salom Hammaga.&#xA;Part81 Create_Load_Summary_Email_TR &#xA;loyihasi muvoffaqiyatli yakunlandi.&#xA;Bu yerda barcha qatorlar soni: 0" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{046C9D0A-0F5B-4E76-940A-B2FEDA2EF929}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Send Mail Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="120.833328531848,107.466667520735" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Send Mail Task"
+          TopLeft="119.166661931409,208.000001653035" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="194.999995231629,149.066667520735">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.9333341323004"
+              Start="0,0"
+              End="0,51.4333341323004">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.4333341323004" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="328.124986961485,50.916667071316" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Data Flow Task\Multicast"
+          TopLeft="321.874987209837,206.266668305927" />
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\Data Flow Task\Loading"
+          TopLeft="212.708324881064,369.183335459895" />
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\Data Flow Task\Updating"
+          TopLeft="447.499982217949,369.600001322429" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Data Flow Task\Row Count"
+          TopLeft="335.416653338406,125.666667665376" />
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\Data Flow Task\Row Count 1"
+          TopLeft="217.916658007437,289.866667355432" />
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\Data Flow Task\Row Count 2"
+          TopLeft="440.833315816191,287.466666528914" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="402.170820149945,92.516667071316">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.1500005940597"
+              Start="0,0"
+              End="0,25.6500005940597">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6500005940597" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Row Count Output 1]"
+          TopLeft="399.445820274122,167.266667665376">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.0000006405512"
+              Start="0,0"
+              End="0,31.5000006405512">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5000006405512" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 3]"
+          TopLeft="398.674987209837,247.866668305927">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-111.5583292024,41.9999990495048"
+              Start="0,0"
+              End="-111.5583292024,34.4999990495048">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.9999995247524" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.9999995247524"
+                    Point2="0,20.9999995247524"
+                    Point3="-4,20.9999995247524" />
+                  <mssgle:LineSegment
+                    End="-107.5583292024,20.9999995247524" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-107.5583292024,20.9999995247524"
+                    Point2="-111.5583292024,20.9999995247524"
+                    Point3="-111.5583292024,24.9999995247524" />
+                  <mssgle:LineSegment
+                    End="-111.5583292024,34.4999990495048" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Row Count Output 11]"
+          TopLeft="284.112491444251,331.466667355432">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.7166681044631"
+              Start="0,0"
+              End="0,30.2166681044631">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2166681044631" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 1]"
+          TopLeft="422.941653876504,247.866668305927">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="89.0916619396876,39.599998222987"
+              Start="0,0"
+              End="89.0916619396876,32.099998222987">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.0849477318112" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.0849477318112"
+                    Point2="0,16.0849477318112"
+                    Point3="4,16.0849477318112" />
+                  <mssgle:LineSegment
+                    End="85.0916619396876,16.0849477318112" />
+                  <mssgle:CubicBezierSegment
+                    Point1="85.0916619396876,16.0849477318112"
+                    Point2="89.0916619396876,16.0849477318112"
+                    Point3="89.0916619396876,20.0849477318112" />
+                  <mssgle:LineSegment
+                    End="89.0916619396876,32.099998222987" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Row Count Output 12]"
+          TopLeft="513.76664901707,329.066666528914">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.5333347935147"
+              Start="0,0"
+              End="0,33.0333347935147">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.0333347935147" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
