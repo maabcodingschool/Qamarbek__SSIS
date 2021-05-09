@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/2/2021 6:35:03 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-OSQ8FADN"
+  DTS:CreatorName="LAPTOP-OSQ8FADN\Qamarbek"
+  DTS:DTSID="{9CC646DB-8D88-46AA-B559-B654C4C355C4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.152"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Part99 AvoidFTPErrorWhen"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{E67D679A-1C8C-435E-A378-AF7D94ECED7E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FTP Connection Manager]"
+      DTS:CreationName="FTP"
+      DTS:DTSID="{16013A39-547C-4098-A39B-BF3B5748C988}"
+      DTS:ObjectName="FTP Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="192.168.43.98:21">
+          <DTS:FtpConnection
+            DTS:ServerName="192.168.43.98"
+            DTS:ServerUserName="ftp-user">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAG/KjIEGYKkeRPbZjiRQ0BQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABoUbIliiAeN3+ZQ5tXjMIu3goBZr0nQdoV+xpbhxYidAAAAAAOgAAAAAIAACAAAABhL9AJAmRYP3yn0i+JhQHZANVqeFLNHxEvoDEpQF9qdBAAAACAtIcDTtBPmkJNv9NGXHZRQAAAAJoXzE2R/50VSYu0kQuGySRBR9zOwlV9a/nkxF+xUsj9RlUQ4sudQCrmTh4QJnwnUcxj9hMQQ4nWIpCl8aQb5zw</DTS:Property>
+          </DTS:FtpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1F4C4B22-A15A-4D8B-B4F4-EB14924DF8CA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8">AS_Sale.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{710C189E-A221-40B9-B1A0-D8F1D129E126}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Flag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E17234B4-325D-42BC-ACA9-38FB52DFA17E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LocalFolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\maabc\OneDrive\Documents\Desktop\FTP\LocalFolder\Video99</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{29B29FE2-C13D-47E7-9F78-817452E75AA6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="RemoteFolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">/Sale</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FTP Task"
+      DTS:CreationName="Microsoft.FtpTask"
+      DTS:Description="FTP Task"
+      DTS:DTSID="{E14E2283-FB35-4593-B476-27CA30E0271B}"
+      DTS:ExecutableType="Microsoft.FtpTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FTP Task"
+      DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2019; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="RemotePath">@[User::RemoteFolderPath]+"/"+ @[User::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <FtpData
+          ConnectionName="{16013A39-547C-4098-A39B-BF3B5748C988}"
+          TaskOperationType="Receive"
+          TaskIsLocalPathVar="True"
+          TaskLocalPath="User::LocalFolderPath"
+          TaskRemotePath="/Sale/AS_Sale.txt"
+          TaskOverwriteDest="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Script Task"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:DTSID="{76C36E4E-E381-4A39-8F1C-CEEF7A586979}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Script Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_55fa6bff45074d64aa1192611ebf5f0f"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadOnlyVariables="User::FileName,User::RemoteFolderPath"
+          ReadWriteVariables="User::Flag" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Script Task 1"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:DTSID="{B4243D0C-E156-43A6-A9AD-089451B3B14A}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Script Task 1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_4b1b26e280304f798897f83fe8123153"
+          VSTAMajorVersion="15"
+          VSTAMinorVersion="0"
+          Language="CSharp" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{6C14429A-F914-4DF7-B841-F3930E2425A6}"
+      DTS:EvalOp="3"
+      DTS:Expression="@Flag==1"
+      DTS:From="Package\Script Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\FTP Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{3B1247E5-2D02-4E67-8374-9868F6D2C266}"
+      DTS:EvalOp="3"
+      DTS:Expression="@Flag==0"
+      DTS:From="Package\Script Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Script Task 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\FTP Task"
+          TopLeft="179.444437313963,253.600001033147" />
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\Script Task"
+          TopLeft="285.833321975338,132.644445502846" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="330.633321975338,174.244445502846">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-86.3888846613746,79.3555555303009"
+              Start="0,0"
+              End="-86.3888846613746,71.8555555303009">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.319353525068" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.319353525068"
+                    Point2="0,32.319353525068"
+                    Point3="-4,32.319353525068" />
+                  <mssgle:LineSegment
+                    End="-82.3888846613746,32.319353525068" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-82.3888846613746,32.319353525068"
+                    Point2="-86.3888846613746,32.319353525068"
+                    Point3="-86.3888846613746,36.319353525068" />
+                  <mssgle:LineSegment
+                    End="-86.3888846613746,71.8555555303009" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-51.1944423306873,37.319353525068,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\Script Task 1"
+          TopLeft="403.055539539568,251.666668670972" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="371.433321975338,174.244445502846">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="101.22221756423,77.4222231681259"
+              Start="0,0"
+              End="101.22221756423,69.9222231681259">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5319599812003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5319599812003"
+                    Point2="0,31.5319599812003"
+                    Point3="4,31.5319599812003" />
+                  <mssgle:LineSegment
+                    End="97.2222175642296,31.5319599812003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97.2222175642296,31.5319599812003"
+                    Point2="101.22221756423,31.5319599812003"
+                    Point3="101.22221756423,35.5319599812003" />
+                  <mssgle:LineSegment
+                    End="101.22221756423,69.9222231681259" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="42.6111087821148,36.5319599812003,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
